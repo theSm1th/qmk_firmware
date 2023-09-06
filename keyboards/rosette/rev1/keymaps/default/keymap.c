@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_7,       KC_8,
         EE_CLR,       QK_BOOT,       DB_TOGG,
-        RGB_MODE_FORWARD,       RGB_MODE_RAINBOW,       RGB_MODE_RGBTEST
+        RGB_MODE_FORWARD,       RGB_MODE_SWIRL,       RGB_MODE_RGBTEST
     ),
     [_L1] = LAYOUT(
         KC_TRNS,       KC_TRNS,
