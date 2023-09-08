@@ -3,6 +3,8 @@
 
 #include "keycodes.h"
 #include QMK_KEYBOARD_H
+#include <stdio.h>
+char wpm_str[10];
 
 enum layer_names {
     _BASE,
@@ -10,8 +12,6 @@ enum layer_names {
     _L2,
     _L3
 };
-
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌───┬───┬───┐
@@ -47,3 +47,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+#ifdef OLED_ENABLE
+// Draw to OLED
+bool oled_task_user() {
+    // Set cursor position
+    oled_set_cursor(0, 1);
+
+    // Caps lock status
+    led_t led_state = host_keyboard_led_state();
+    oled_write_P(led_state.caps_lock ? PSTR("Caps Lock On ") : PSTR("Caps Lock Off"), false);
+
+    return false;
+}
+#endif
